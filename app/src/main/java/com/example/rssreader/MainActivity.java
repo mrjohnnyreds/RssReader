@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
 
+    private ReadRss readRss;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
         recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
-        ReadRss readRss=new ReadRss(this,recyclerView);
+        readRss=new ReadRss(this,recyclerView);
         readRss.setProgressBar(mProgress);
         readRss.execute();
     }
@@ -70,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
-            recreate();
+            this.readRss.recyclerView.removeAllViews();
             return true;
         }
 
