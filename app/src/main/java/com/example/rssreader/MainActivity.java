@@ -14,14 +14,12 @@ import android.widget.ListView;
 import android.widget.ProgressBar;
 
 public class MainActivity extends AppCompatActivity {
-    //trying new progress bar
+
     public ProgressBar mProgress;
     private int mProgressStatus = 0;
-
     RecyclerView recyclerView;
 
-
-    //example nav drawer
+    //TODO example nav drawer
     private String[] mPlanetTitles;
     private DrawerLayout mDrawerLayout;
     private ListView mDrawerList;
@@ -33,40 +31,37 @@ public class MainActivity extends AppCompatActivity {
 
         //TODO implementation of navigation drawer
         //mPlanetTitles = getResources().getStringArray(R.array.planets_array);
-        mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
-        mDrawerList = (ListView) findViewById(R.id.left_drawer);
+        //mDrawerLayout = (DrawerLayout) findViewById(R.id.drawer_layout);
+        //mDrawerList = (ListView) findViewById(R.id.left_drawer);
 
         mProgress= (ProgressBar) findViewById(R.id.progressBar);
         mProgress.setMax(10);
         mProgress.setVisibility(View.VISIBLE);
         mProgress.setProgress(0);
-        //make the progress bar visible
-        //mProgress.setVisibility(View.VISIBLE);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        /*FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "TODO: Contatta tantestorie.it", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });*/
+        });
         recyclerView= (RecyclerView) findViewById(R.id.recyclerview);
         ReadRss readRss=new ReadRss(this,recyclerView);
         readRss.setProgressBar(mProgress);
         readRss.execute();
     }
 
-    /*@Override
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }*/
+    }
 
-    /*@Override
+    @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
@@ -75,9 +70,10 @@ public class MainActivity extends AppCompatActivity {
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            recreate();
             return true;
         }
 
         return super.onOptionsItemSelected(item);
-    }*/
+    }
 }
